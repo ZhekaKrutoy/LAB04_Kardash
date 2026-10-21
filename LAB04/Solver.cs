@@ -24,8 +24,8 @@
         /// </example>
         public static string IntroduceYourself(string name, int age)
         {
-            // Реализовать метод для решения задачи
-            throw new NotImplementedException();
+            string formattedName = char.ToUpper(name[0]) + name.Substring(1).ToLower();
+            return $"Hello! My name is {formattedName} and i am {age} years old.";
         }
 
         // =========================
@@ -106,8 +106,8 @@
         /// </example>
         public static string Average(double a, double b, double c)
         {
-            // Реализовать метод для решения задачи
-            throw new NotImplementedException();
+            double d = (a + b + c) / 3;
+            return $"Среднее арифметическое чисел {a}, {b} и {c} = {d:F2}";
         }
 
         /// <summary>
@@ -205,8 +205,28 @@
         /// </example>
         public static string GetTimeOfDay(int hour)
         {
-            // Реализовать метод для решения задачи
-            throw new NotImplementedException();
+            if (hour >= 0 && hour < 4)
+            {
+                return $"{hour} час - Ночь";
+            }
+
+            else if (hour >= 4 && hour < 12)
+            {
+                return $"{hour} час - Утро";
+            }
+            else if (hour >= 12 && hour < 17)
+            {
+                return $"{hour} час - День";
+            }
+
+            else if (hour >= 17 && hour < 24)
+            {
+                return $"{hour} час - Вечер";
+            }
+            else
+            {
+                return $"{hour} час - Не существует";
+            }
         }
 
         /// <summary>
@@ -304,8 +324,13 @@
         /// </example>
         public static string AverageArray(int[] numbers)
         {
-            // Реализовать метод для решения задачи
-            throw new NotImplementedException();
+            double sum = 0;
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                sum += numbers[i];
+            }
+            double averageFor = sum / numbers.Length;
+            return $"Среднее значение массива = {averageFor:F2}";
         }
 
         /// <summary>
@@ -403,8 +428,17 @@
         /// </example>
         public static string SplitArray(int[] array)
         {
-            // Реализовать метод для решения задачи
-            throw new NotImplementedException();
+            if (array == null || array.Length == 0)
+            {
+                return "Массив не может быть пустым";
+            }
+
+            var positiveNumbers = array.Where(x => x > 0);
+            var negativeNumbers = array.Where(x => x < 0);
+            string positiveStr = string.Join(" ", positiveNumbers);
+            string negativeStr = string.Join(" ", negativeNumbers);
+
+            return $"Положительные: {positiveStr}. Отрицательные: {negativeStr}";
         }
 
         /// <summary>
